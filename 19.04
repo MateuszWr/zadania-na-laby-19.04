@@ -1,0 +1,134 @@
+public class ChristmasTree {
+
+    public static void main(String[] args) {
+        int height = 10; // wysokość choinki
+        int width = 2 * height - 1; // szerokość podstawy choinki
+
+        for (int row = 1; row <= height; row++) {
+            // wyświetlanie spacji przed pierwszym znakiem w wierszu
+            for (int i = 0; i < height - row; i++) {
+                System.out.print(" ");
+            }
+
+            // wyświetlanie znaków w wierszu
+            for (int i = 0; i < 2 * row - 1; i++) {
+                System.out.print("*");
+            }
+
+            // przejście do nowego wiersza
+            System.out.println();
+        }
+
+        // wyświetlanie pnia choinki
+        for (int i = 0; i < height - 1; i++) {
+            System.out.print(" ");
+        }
+        System.out.println("*");
+    }
+}
+
+zamiana liter z duzych na małe
+
+import java.util.Scanner;
+
+public class ChangeCase {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Wprowadź tekst: ");
+        String text = scanner.nextLine();
+
+        System.out.print("Wybierz opcję: (1) zamiana na małe litery, (2) zamiana na duże litery: ");
+        int option = scanner.nextInt();
+
+        String newText = "";
+        if (option == 1) {
+            newText = text.toLowerCase();
+        } else if (option == 2) {
+            newText = text.toUpperCase();
+        } else {
+            System.out.println("Nieprawidłowa opcja!");
+            return;
+        }
+
+        System.out.println("Nowy tekst: " + newText);
+    }
+}
+
+tabliczka mnożenia 
+
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        // ustalenie rozmiaru tabliczki mnożenia
+        int size = 10;
+
+        // wyświetlenie nagłówka tabliczki mnożenia
+        System.out.print("  |");
+        for (int i = 1; i <= size; i++) {
+            System.out.printf("%4d", i);
+        }
+        System.out.println("\n--+--------------------------");
+
+        // wyświetlenie treści tabliczki mnożenia
+        for (int i = 1; i <= size; i++) {
+            System.out.printf("%2d|", i);
+            for (int j = 1; j <= size; j++) {
+                System.out.printf("%4d", i * j);
+            }
+            System.out.println();
+        }
+    }
+}
+
+silnia 
+
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj liczbę: ");
+        int n = scanner.nextInt();
+
+        int factorial = 1;
+        for (int i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+
+        System.out.println(n + "! = " + factorial);
+    }
+}
+
+kwadratowe ax^2 + bx + c = 0:
+
+import java.util.Scanner;
+
+public class QuadraticEquation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Podaj wartości a, b i c dla równania ax^2 + bx + c = 0");
+        System.out.print("a: ");
+        double a = scanner.nextDouble();
+        System.out.print("b: ");
+        double b = scanner.nextDouble();
+        System.out.print("c: ");
+        double c = scanner.nextDouble();
+
+        double delta = b * b - 4 * a * c;
+
+        if (a == 0) {
+            System.out.println("To nie jest równanie kwadratowe.");
+        } else if (delta < 0) {
+            System.out.println("Brak rozwiązań rzeczywistych.");
+        } else if (delta == 0) {
+            double x = -b / (2 * a);
+            System.out.println("x = " + x);
+        } else {
+            double x1 = (-b - Math.sqrt(delta)) / (2 * a);
+            double x2 = (-b + Math.sqrt(delta)) / (2 * a);
+            System.out.println("x1 = " + x1 + ", x2 = " + x2);
+        }
+    }
+}
